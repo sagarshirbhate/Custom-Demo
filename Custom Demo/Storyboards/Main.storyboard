@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Custom_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1wd-Y4-NzQ">
+                                <rect key="frame" x="26" y="25" width="323" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="xeF-Ue-kUk">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="50"/>
+                                    </constraint>
+                                </constraints>
+                                <segments>
+                                    <segment title="Map"/>
+                                    <segment title="" image="icon_list"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Cz3-MP-h3u"/>
+                                </connections>
+                            </segmentedControl>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="F3Q-cb-eGE">
+                                <rect key="frame" x="-4" y="65" width="383" height="602"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="29D-Lm-KdH"/>
+                                </connections>
+                            </mapView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fvi-3x-dGy">
+                                <rect key="frame" x="-4" y="65" width="383" height="602"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="1fo-vc-6ZP" style="IBUITableViewCellStyleDefault" id="fOO-i1-RVB">
+                                        <rect key="frame" x="0.0" y="28" width="383" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fOO-i1-RVB" id="93L-VE-ftj">
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1fo-vc-6ZP">
+                                                    <rect key="frame" x="15" y="0.0" width="333" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="n7t-Sr-DHU"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="5P2-uK-YaE"/>
+                                </connections>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="jSI-C5-HIb">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="F3Q-cb-eGE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="3vj-3u-MJ2"/>
+                            <constraint firstItem="1wd-Y4-NzQ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="25" id="8Vx-jF-VVd"/>
+                            <constraint firstItem="fvi-3x-dGy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="8dv-4Z-QR0"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="F3Q-cb-eGE" secondAttribute="bottom" id="9Lj-y9-Fzj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1wd-Y4-NzQ" secondAttribute="trailing" constant="10" id="IPX-lm-lZ3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fvi-3x-dGy" secondAttribute="trailing" constant="-20" id="Pgc-v7-zl9"/>
+                            <constraint firstItem="fvi-3x-dGy" firstAttribute="top" secondItem="1wd-Y4-NzQ" secondAttribute="bottom" constant="8" id="Rm8-XB-svY"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fvi-3x-dGy" secondAttribute="bottom" id="Xds-lK-IHu"/>
+                            <constraint firstItem="jSI-C5-HIb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="eSA-40-EN4"/>
+                            <constraint firstItem="F3Q-cb-eGE" firstAttribute="top" secondItem="1wd-Y4-NzQ" secondAttribute="bottom" constant="8" id="iQl-VK-aSS"/>
+                            <constraint firstItem="1wd-Y4-NzQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="oOs-PD-7zo"/>
+                            <constraint firstItem="jSI-C5-HIb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xK0-Cy-LJs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="F3Q-cb-eGE" secondAttribute="trailing" constant="-20" id="zCy-5T-kmE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="jSI-C5-HIb" id="olG-cE-a7r"/>
+                        <outlet property="mapView" destination="F3Q-cb-eGE" id="sJ7-om-yCx"/>
+                        <outlet property="segmentController" destination="1wd-Y4-NzQ" id="kBT-j0-vxm"/>
+                        <outlet property="tableView" destination="fvi-3x-dGy" id="Yoh-cN-mDD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116" y="123.68815592203899"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon_list" width="24" height="24"/>
+    </resources>
+</document>
